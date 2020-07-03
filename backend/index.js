@@ -21,6 +21,9 @@ app.use(multer(storage).single('image'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
+// routes
+app.use(require('./routes/books'));
+
 // start server
 app.listen(app.get('port'), () => {
     console.log('server on port', app.get('port'));
