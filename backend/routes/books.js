@@ -9,18 +9,15 @@ router.get('/', async(req, res) => {
 });
 
 router.post('/', async(req, res) => {
-    console.log(req.body);
-    res.send('received')
+    const { title, author, isbn } = req.body;
+    const newBook = new Book({ title, author, isbn });
+    await newBook.save();
+    res.json({message: 'Book Saved'});
 });
 
-router.put('/', async(req, res) => {
-    console.log(req.body);
-    res.send('updated')
-});
-
-router.delete('/', async(req, res) => {
-    console.log(req.body);
-    res.send('deleted')
+router.delete('/:id', async(req, res) => {
+    await Book.findByIdAndDelete(req.params.id);
+    res.json({message: 'Book Deleted'});
 });
 
 module.exports = router;
