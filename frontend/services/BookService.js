@@ -31,4 +31,4 @@ class BookService {
     }
 }
 
-module.exports = BookService;
+export default BookService;
