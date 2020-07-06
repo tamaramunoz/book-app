@@ -1,6 +1,10 @@
 import './styles/app.css';
 import UI from './UI';
 
+document.addEventListener('DOMContentLoaded', () => {
+    const ui = new UI();
+    ui.renderBooks();
+});
 
 document.getElementById('book-form')
     .addEventListener('submit', e => {
