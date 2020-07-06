@@ -1,3 +1,1 @@
-alert('works');
-
-require('./styles/style.css')
+import './styles/app.css';
