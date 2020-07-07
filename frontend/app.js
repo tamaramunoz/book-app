@@ -25,3 +25,11 @@ document.getElementById('book-form')
         e.preventDefault();
         console.log(title, author, isbn, image);
     });
+
+document.getElementById('books-cards').addEventListener('click', e => {
+    if (e.target.classList.contains('delete')) {
+        const ui = new UI()
+        ui.deleteBook(e.target.getAttribute('_id'));
+    }
+    e.preventDefault();
+});
