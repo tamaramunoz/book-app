@@ -21,15 +21,18 @@ document.getElementById('book-form')
 
         const ui = new UI();
         ui.addANewBook(formData);
+        ui.renderMessage('New Book Added', 'success', 3000);
 
         e.preventDefault();
-        console.log(title, author, isbn, image);
+        // console.log(title, author, isbn, image);
     });
 
-document.getElementById('books-cards').addEventListener('click', e => {
-    if (e.target.classList.contains('delete')) {
-        const ui = new UI()
-        ui.deleteBook(e.target.getAttribute('_id'));
-    }
-    e.preventDefault();
-});
+document.getElementById('books-cards')
+    .addEventListener('click', e => {
+        if (e.target.classList.contains('delete')) {
+            const ui = new UI()
+            ui.deleteBook(e.target.getAttribute('_id'));
+            ui.renderMessage('Book Removed', 'danger', 3000);
+        }
+        e.preventDefault();
+    });
